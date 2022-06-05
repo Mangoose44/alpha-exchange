@@ -40,10 +40,10 @@ margin-top: 4px;
 margin-bottom: 30px;
 `
 const ArrowIcon = styled.img `
-height: 15px;
-width: 24px;
+height: 40px;
+width: 40px;
 margin-top: 9px;
-margin-left: 11px;
+margin-left: 2px;
 `
 
 function emailValidation (email){

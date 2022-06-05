@@ -6,8 +6,9 @@ import images from '../../images'
 import Arrow from '../../components/arrowIcon'
 import Checkmark from '../../components/Checkmark'
 import Agreement from '../../components/Agreement'
+import coinAddressValidator from 'coin-address-validator';
 
-
+ 
 
 function FirstScreen () {
   const [ payValue, setPayValue ] = useState('')
@@ -17,6 +18,9 @@ function FirstScreen () {
   const [ cardNumber, setCardNumber ] = useState('')
   const [ isAgreement, setIsAgreement ] = useState('')
   
+  const isAddressValid  = coinAddressValidator.validate({toAddress});
+
+  console.log ({ isFormValid, isAddressValid })
   // if (payValue.length > 5) alert('lol')
   //console.log({ isFormValid, payValue })
   return (
@@ -27,7 +31,6 @@ function FirstScreen () {
         onChange={value => setPayValue(value)}
         value={payValue} />
       <Arrow/>
-      {/* <img src={images.arrowIcon.default}/> */}
       <Input
         currencyIcon={images.btcIcon}
         label="You get"
@@ -48,14 +51,14 @@ function FirstScreen () {
       <Checkmark
         onClick={() => setIsAgreement(!isAgreement)}
         currencyIcon={images.checkmarkIcon} 
-        label='Ты пидор?'
-        LinkText = 'Да'
+        label='Согласен с '
+        LinkText = 'ЛС'
         checked={isAgreement}
         />
 
       <Button
-        disabled={isFormValid}
-        onClick={() => setisFormValid(!isFormValid)}>Exchange</Button>
+        disabled={isFormValid && isAddressValid && isAgreement }
+        onClick={() => setisFormValid(!isFormValid || !isAddressValid)}>Exchange</Button>
     </Container>
   )
 }
