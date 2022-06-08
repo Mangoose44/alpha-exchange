@@ -1,2 +1,2 @@
-import Input from './Input'
-export default Input
+import FirstScreenChangeButton from './Input'
+export default FirstScreenChangeButton
