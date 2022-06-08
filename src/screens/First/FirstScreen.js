@@ -8,7 +8,8 @@ import Checkmark from '../../components/Checkmark'
 import InputNumberComponent from '../../components/NumberInput'
 import coinAddressValidator from 'coin-address-validator'
 import {cardNumberValidation} from '../../Utils/cardNumberValidation'
-
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 
  
@@ -25,7 +26,7 @@ function FirstScreen () {
   const isAddressValid = coinAddressValidator.validate(toAddress);
 
   
-
+ 
   console.log ({isAddressValid })
 
   const isValid = cardNumberValidation(cardNumber) 
@@ -66,10 +67,13 @@ function FirstScreen () {
         LinkText = 'ЛС'
         checked={isAgreement}
         />
-
-      <Button
-        disabled={ !isAddressValid || !isAgreement || !isValid}
+      <Link to='/secondscreen' style={{ textDecoration: 'none'}}
+      disabled={ !isAddressValid || !isAgreement || !isValid} >
+        <Button
+        
+        disabled={ !isAddressValid || !isAgreement || !isValid} 
         >Exchange</Button>
+      </Link>
     </Container>
   )
 }

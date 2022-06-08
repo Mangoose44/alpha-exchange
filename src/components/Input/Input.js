@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Input, Container, Label, InputContainer } from './InputStyles'
 
-function InputComponent ({ isNumeric,currencyIcon, onChange, value, label }) {
+function InputComponent ({ isNumeric, currencyIcon, onChange, value, label }) {
   return (
     
   <Container>
